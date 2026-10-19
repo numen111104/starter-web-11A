@@ -1,0 +1,9 @@
+{
+  "name": "lapak-buah-11a",
+  "version": "1.0.0",
+  "description": "Proyek belajar kelas 11-A: lapak buah dengan nota belanja",
+  "type": "module",
+  "scripts": {
+    "uji": "node uji-logika.mjs"
+  }
+}

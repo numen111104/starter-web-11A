@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Pisang">
+  <defs>
+    <linearGradient id="kulit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff176"/>
+      <stop offset="1" stop-color="#f9a825"/>
+    </linearGradient>
+    <linearGradient id="kulitBelakang" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe082"/>
+      <stop offset="1" stop-color="#e59a12"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="104" cy="184" rx="64" ry="7" fill="#000" opacity=".13"/>
+  <g transform="translate(30 -6) rotate(9 100 100)">
+    <path d="M58 40 C34 104 72 172 150 164 C166 162 170 148 158 146 C110 140 86 94 90 44 Z" fill="url(#kulitBelakang)"/>
+    <path d="M58 40 L90 44 L88 26 L62 24 Z" fill="#7a6417"/>
+    <path d="M150 164 C166 162 170 148 158 146 C154 152 152 158 150 164 Z" fill="#4e342e"/>
+  </g>
+  <path d="M50 44 C24 112 66 182 148 174 C166 172 170 156 158 154 C106 148 78 100 82 48 Z" fill="url(#kulit)"/>
+  <path d="M50 44 L82 48 L80 28 L54 26 Z" fill="#7a6417"/>
+  <path d="M148 174 C166 172 170 156 158 154 C154 160 152 168 148 174 Z" fill="#4e342e"/>
+  <path d="M58 70 C46 112 62 150 96 166" stroke="#fff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

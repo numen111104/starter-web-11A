@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lapak Buah 11-A</title>
+  <meta name="description" content="Proyek belajar kelas 11-A: lapak buah online dengan nota belanja, diskon, dan kupon.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!--
+    PETA ID: elemen yang punya id akan "dipegang" oleh JavaScript (main.js).
+    Elemen tanpa id hanya urusan CSS.
+  -->
+
+  <header class="header" id="atas">
+    <div class="bungkus header-isi">
+      <a class="logo" href="#atas">
+        <span class="logo-ikon" aria-hidden="true">🍏</span>
+        Lapak Buah 11-A
+      </a>
+      <div class="header-aksi">
+        <button id="tombol-tema" class="tombol tombol-garis-terang" type="button">Mode gelap</button>
+        <a class="tombol tombol-kuning" href="#nota">
+          Nota
+          <span id="badge-nota" class="badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="bungkus">
+
+    <!-- Bagian pembuka: sapaan diisi JavaScript, daftar aturan diskon juga -->
+    <section class="papan" aria-labelledby="sapaan">
+      <div class="papan-teks">
+        <h1 id="sapaan">Selamat datang</h1>
+        <p>Pilih buah segar, tambahkan ke nota, lalu bayar. Semua harga per kilogram.</p>
+      </div>
+      <!-- Satu stiker contoh (statis) agar CSS .stiker bisa dicoba. JavaScript (renderPapanInfo, Langkah 5.1) akan menimpanya. -->
+      <ul id="papan-info" class="papan-info" aria-label="Aturan diskon dan kupon">
+        <li class="stiker">
+          <strong>Diskon 5%</strong>
+          <span>belanja mulai Rp75.000</span>
+        </li>
+      </ul>
+    </section>
+
+    <div class="tata-letak">
+
+      <!-- KOLOM KIRI: katalog + riwayat -->
+      <div class="lapak">
+        <section aria-labelledby="judul-katalog">
+          <div class="alat">
+            <h2 id="judul-katalog">Buah hari ini</h2>
+            <div class="alat-pilihan">
+              <label>
+                Kategori
+                <select id="pilih-kategori">
+                  <option value="Semua">Semua</option>
+                  <option value="Lokal">Lokal</option>
+                  <option value="Impor">Impor</option>
+                </select>
+              </label>
+              <label>
+                Urutkan
+                <select id="pilih-urutan">
+                  <option value="asli">Urutan lapak</option>
+                  <option value="murah">Harga termurah</option>
+                  <option value="mahal">Harga termahal</option>
+                  <option value="nama">Nama A-Z</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <p id="jumlah-hasil" class="redam" aria-live="polite"></p>
+          <!--
+            KARTU CONTOH (statis), dipakai untuk melatih CSS di Pertemuan 1.
+            Nanti seluruh isi #katalog ditimpa oleh JavaScript (renderKatalog),
+            sehingga kartu ini otomatis hilang dan diganti kartu dari data.js.
+            Struktur kartu ini SAMA dengan template string di fungsi buatKartu() (main.js).
+          -->
+          <div id="katalog" class="katalog">
+            <article class="kartu" style="--warna: #ffe1de">
+              <div class="kartu-foto">
+                <img src="assets/img/apel-merah.svg" alt="Apel" width="200" height="200">
+                <button class="ganti-warna" type="button">Ganti warna</button>
+                <span class="harga-tag">Rp32.000<small>/kg</small></span>
+              </div>
+              <div class="kartu-isi">
+                <h3>Apel</h3>
+                <p class="kartu-info">
+                  <span>Impor</span>
+                  <span>Stok 12 kg</span>
+                </p>
+                <button class="tombol tombol-hijau tombol-lebar" type="button">Tambah ke nota</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="riwayat" aria-labelledby="judul-riwayat">
+          <div class="alat">
+            <h2 id="judul-riwayat">Riwayat pesanan</h2>
+            <button id="tombol-batal" class="tombol tombol-garis" type="button">Batalkan pesanan terakhir</button>
+          </div>
+          <p id="riwayat-kosong" class="redam">Belum ada pesanan. Bayar satu nota untuk melihatnya di sini.</p>
+          <ol id="daftar-riwayat" class="daftar-riwayat"></ol>
+        </section>
+      </div>
+
+      <!-- KOLOM KANAN: nota belanja (keranjang) -->
+      <aside class="nota" id="nota" aria-labelledby="judul-nota">
+        <h2 id="judul-nota">Nota belanja</h2>
+
+        <p id="nota-kosong" class="nota-kosong">Nota masih kosong. Pilih buah dari lapak.</p>
+        <ul id="daftar-nota" class="daftar-nota"></ul>
+
+        <dl class="ringkasan">
+          <div class="ringkasan-baris">
+            <dt>Subtotal</dt>
+            <dd id="subtotal">Rp0</dd>
+          </div>
+          <div class="ringkasan-baris">
+            <dt id="label-diskon">Diskon</dt>
+            <dd id="diskon">Rp0</dd>
+          </div>
+          <div class="ringkasan-baris">
+            <dt>Kupon</dt>
+            <dd id="potongan-kupon">Rp0</dd>
+          </div>
+          <div class="ringkasan-baris">
+            <dt>Pembulatan</dt>
+            <dd id="pembulatan">Rp0</dd>
+          </div>
+          <div class="ringkasan-baris total">
+            <dt>Total</dt>
+            <dd id="total">Rp0</dd>
+          </div>
+        </dl>
+
+        <div class="isian">
+          <label for="input-kupon">Kode kupon</label>
+          <div class="isian-baris">
+            <input id="input-kupon" type="text" placeholder="Contoh: HEMAT10" autocomplete="off">
+            <button id="tombol-kupon" class="tombol tombol-garis" type="button">Pakai</button>
+          </div>
+          <p id="pesan-kupon" class="pesan" aria-live="polite"></p>
+        </div>
+
+        <div class="isian">
+          <label for="input-bayar">Uang dibayar (Rp)</label>
+          <input id="input-bayar" type="number" min="0" step="1000" inputmode="numeric" placeholder="0">
+          <p id="kembalian" class="pesan" aria-live="polite"></p>
+        </div>
+
+        <button id="tombol-bayar" class="tombol tombol-hijau tombol-lebar" type="button">Bayar</button>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer bungkus">
+    <p>Proyek belajar kelas 11-A, Pemrograman Web. Data hanya tersimpan selama halaman terbuka.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!--
+    type="module" wajib agar import/export bisa dipakai di browser.
+    Karena itu halaman HARUS dibuka lewat server (Live Server), bukan klik dua kali file-nya.
+  -->
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

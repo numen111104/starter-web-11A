@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Mangga">
+  <defs>
+    <linearGradient id="badan" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#d4e157"/>
+      <stop offset="0.55" stop-color="#fbc02d"/>
+      <stop offset="1" stop-color="#f29b1d"/>
+    </linearGradient>
+    <radialGradient id="merona" cx="0.75" cy="0.7" r="0.55">
+      <stop offset="0" stop-color="#e8452c" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#e8452c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="daun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8bc34a"/>
+      <stop offset="1" stop-color="#2e7d32"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="186" rx="58" ry="7" fill="#000" opacity=".14"/>
+  <g transform="rotate(-22 100 110)">
+    <path d="M100 38 C150 38 176 78 174 118 C172 156 138 182 100 182 C62 182 28 156 26 118 C24 78 50 38 100 38 Z" fill="url(#badan)"/>
+    <path d="M100 38 C150 38 176 78 174 118 C172 156 138 182 100 182 C62 182 28 156 26 118 C24 78 50 38 100 38 Z" fill="url(#merona)"/>
+    <path d="M52 92 C54 72 68 58 86 52" stroke="#fff" stroke-opacity=".5" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M100 40 C100 30 104 22 112 16" stroke="#5d3a1a" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </g>
+  <path d="M104 24 C112 4 142 2 156 12 C150 34 118 40 104 24 Z" fill="url(#daun)"/>
+  <path d="M108 23 C124 18 140 14 152 12" stroke="#1b5e20" stroke-opacity=".5" stroke-width="2" fill="none"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Apel hijau">
+  <defs>
+    <radialGradient id="badan" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#d4f08a"/>
+      <stop offset="0.55" stop-color="#8bc34a"/>
+      <stop offset="1" stop-color="#4c8a1f"/>
+    </radialGradient>
+    <linearGradient id="daun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#66bb6a"/>
+      <stop offset="1" stop-color="#1b5e20"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="184" rx="54" ry="7" fill="#000" opacity=".14"/>
+  <path d="M100 70 C78 48 34 56 32 108 C30 152 64 182 86 176 C94 174 106 174 114 176 C136 182 170 152 168 108 C166 56 122 48 100 70 Z" fill="url(#badan)"/>
+  <path d="M58 88 C62 72 76 64 88 66" stroke="#fff" stroke-opacity=".5" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M100 70 C100 54 104 40 112 30" stroke="#5d3a1a" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M110 48 C122 28 150 28 160 38 C152 58 124 62 110 48 Z" fill="url(#daun)"/>
+  <path d="M114 48 C128 42 142 40 154 38" stroke="#0d3b13" stroke-opacity=".5" stroke-width="2" fill="none"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Anggur">
+  <defs>
+    <radialGradient id="buah" cx="35%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#b388eb"/>
+      <stop offset="0.55" stop-color="#6a3db8"/>
+      <stop offset="1" stop-color="#3b1c78"/>
+    </radialGradient>
+    <linearGradient id="daun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8bc34a"/>
+      <stop offset="1" stop-color="#2e7d32"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="188" rx="40" ry="5" fill="#000" opacity=".14"/>
+  <path d="M104 66 C104 52 108 40 116 30" stroke="#5d3a1a" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M112 44 C122 22 150 20 162 30 C156 52 128 58 112 44 Z" fill="url(#daun)"/>
+  <path d="M116 43 C130 38 146 34 158 30" stroke="#1b5e20" stroke-opacity=".5" stroke-width="2" fill="none"/>
+  <g fill="url(#buah)">
+    <circle cx="58" cy="84" r="19"/><circle cx="92" cy="80" r="19"/><circle cx="126" cy="80" r="19"/><circle cx="154" cy="86" r="17"/>
+    <circle cx="74" cy="112" r="19"/><circle cx="108" cy="110" r="19"/><circle cx="140" cy="112" r="18"/>
+    <circle cx="90" cy="140" r="19"/><circle cx="122" cy="140" r="18"/>
+    <circle cx="106" cy="168" r="18"/>
+  </g>
+  <g fill="#fff" fill-opacity=".45">
+    <circle cx="51" cy="77" r="4"/><circle cx="85" cy="73" r="4"/><circle cx="119" cy="73" r="4"/>
+    <circle cx="67" cy="105" r="4"/><circle cx="101" cy="103" r="4"/><circle cx="83" cy="133" r="4"/><circle cx="99" cy="161" r="4"/>
+  </g>
+</svg>

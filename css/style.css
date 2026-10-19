@@ -1,0 +1,744 @@
+/* ==========================================================
+   style.css — Lapak Buah 11-A (CSS native, tanpa framework)
+
+   FILE STARTER. Cara membaca tanda di file ini:
+     [DISEDIAKAN]  sudah ditulis guru. Baca dan pahami, tidak perlu ditulis ulang.
+     [TODO]        bagian yang HARUS kamu tulis sendiri. Ikuti petunjuk di komentarnya.
+
+   CSS dikerjakan di Pertemuan 1 (Langkah 1.3 sampai 1.5). Bagian responsif dikerjakan
+   di Pertemuan 5 (Langkah 5.1).
+   ========================================================== */
+
+/* ---------- 1. TOKEN [DISEDIAKAN] ----------
+   Custom property (variabel CSS): ditulis  --nama  dan dipakai  var(--nama).
+   Semua warna dan ukuran penting cukup diubah di sini. */
+:root {
+  --daun: #0f4a2a;        /* hijau tua: header */
+  --aksi: #1b6b3c;        /* hijau tombol utama */
+  --aksi-teks: #ffffff;
+  --pisang: #ffd23f;      /* kuning label harga */
+  --pisang-teks: #3a2a00;
+  --tomat: #b3261e;       /* merah: stok tipis dan pesan salah */
+
+  --latar: #eef4ec;
+  --permukaan: #ffffff;
+  --tinta: #0f2a1b;
+  --redam: #4a6354;       /* teks pendukung */
+  --garis: #cbdacb;
+  --fokus: #0b57d0;
+
+  --kertas: #fffef8;      /* kertas nota: sama di mode terang dan gelap */
+  --tinta-kertas: #26261f;
+  --redam-kertas: #5c5b4d;
+  --garis-kertas: #bdbba5;
+
+  --font-tampil: ui-rounded, "Arial Rounded MT Bold", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-isi: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-nota: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+
+  --jarak: 24px;
+  --lengkung: 18px;
+}
+
+/* Mode gelap: cukup menimpa nilai variabel. Kelas "gelap" dipasang di <body> oleh JavaScript. */
+body.gelap {
+  --daun: #08210f;
+  --aksi: #5fd18a;
+  --aksi-teks: #06150c;
+  --tomat: #ff9a92;
+
+  --latar: #0b1a11;
+  --permukaan: #12261a;
+  --tinta: #e7f3ea;
+  --redam: #9db6a5;
+  --garis: #24402f;
+  --fokus: #ffd23f;
+}
+
+/* ---------- 2. RESET DAN DASAR [DISEDIAKAN] ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-isi);
+  line-height: 1.5;
+  color: var(--tinta);
+  background: var(--latar);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-tampil);
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 4vw + 0.5rem, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.bungkus {
+  width: min(1120px, 100% - 32px);
+  margin-inline: auto;
+}
+
+.redam {
+  color: var(--redam);
+}
+
+.sembunyi {
+  display: none;
+}
+
+/* ---------- Tombol [DISEDIAKAN] ----------
+   Satu kelas dasar (.tombol) + kelas variasi. Elemen boleh memakai dua kelas sekaligus. */
+.tombol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tombol:active {
+  transform: translateY(1px);
+}
+
+.tombol:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tombol-hijau {
+  background: var(--aksi);
+  color: var(--aksi-teks);
+}
+
+.tombol-hijau:hover:not(:disabled) {
+  filter: brightness(1.12);
+}
+
+.tombol-kuning {
+  background: var(--pisang);
+  color: var(--pisang-teks);
+}
+
+.tombol-kuning:hover {
+  filter: brightness(1.06);
+}
+
+.tombol-garis {
+  background: transparent;
+  color: var(--tinta);
+  border-color: currentColor;
+}
+
+.tombol-garis:hover:not(:disabled) {
+  background: var(--permukaan);
+}
+
+.tombol-garis-terang {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgb(255 255 255 / 0.55);
+}
+
+.tombol-lebar {
+  width: 100%;
+}
+
+/* ==========================================================
+   LANGKAH 1.3 — HEADER [TODO]
+   Target: bilah hijau tua di atas halaman. Logo di kiri, dua tombol di kanan.
+   Bilah ini menempel di atas layar saat halaman di-scroll.
+
+   Petunjuk properti:
+   - menempel saat scroll  -> position: sticky + top + z-index
+   - susun kiri-kanan      -> display: flex + justify-content + align-items
+   - warna                 -> background: var(--daun); color: #ffffff
+   ========================================================== */
+.header {
+  /* TODO */
+}
+
+.header-isi {
+  /* TODO: flex, tengahkan secara vertikal, beri jarak antar-elemen (gap), tinggi minimal 64px */
+}
+
+.logo {
+  /* TODO: flex agar ikon dan teks sejajar, font-family: var(--font-tampil), tebal, hilangkan garis bawah link */
+}
+
+.header-aksi {
+  /* TODO: flex dengan jarak 10px antar-tombol */
+}
+
+/* Badge angka di tombol Nota [DISEDIAKAN]. Animasi "loncat" dipicu oleh JavaScript. */
+.badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding-inline: 0.4rem;
+  border-radius: 999px;
+  background: var(--daun);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge.loncat {
+  animation: loncat 0.35s ease;
+}
+
+@keyframes loncat {
+  50% {
+    transform: scale(1.4);
+  }
+}
+
+/* ==========================================================
+   LANGKAH 1.4 — PAPAN PEMBUKA DAN TATA LETAK [TODO]
+   ========================================================== */
+
+/* Papan: judul + paragraf di kiri, stiker aturan diskon di kanan.
+   Petunjuk: display: grid dengan grid-template-columns: 1fr auto; align-items: end. */
+.papan {
+  /* TODO */
+}
+
+.papan-teks p {
+  /* TODO: batasi lebar teks (max-width: 46ch), beri jarak atas, warna var(--redam) */
+}
+
+.papan-info {
+  /* TODO: flex + flex-wrap, gap 12px, hilangkan bullet list (list-style: none) dan margin/padding bawaan */
+}
+
+/* Stiker: kotak berbingkai putus-putus seperti kupon yang digunting.
+   Petunjuk: border: 2px dashed var(--aksi); border-radius; background: var(--permukaan). */
+.stiker {
+  /* TODO */
+}
+
+.stiker strong {
+  font-family: var(--font-tampil);
+}
+
+.stiker span {
+  font-size: 0.85rem;
+  color: var(--redam);
+}
+
+/* Tata letak halaman: kolom kiri (katalog) fleksibel, kolom kanan (nota) lebar tetap 360px.
+   Petunjuk: display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start.
+   Pertanyaan: kenapa memakai minmax(0, 1fr) dan bukan 1fr saja? (Cari tahu, lalu jawab di lembar kerja.) */
+.tata-letak {
+  /* TODO */
+}
+
+/* Baris "judul + dua dropdown". Petunjuk: flex, flex-wrap, justify-content: space-between, gap. */
+.alat {
+  /* TODO */
+}
+
+.alat-pilihan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.alat-pilihan label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: var(--redam);
+}
+
+/* Kolom isian (dropdown dan input). Petunjuk: padding, border 2px solid var(--garis), border-radius,
+   background: var(--permukaan), color: var(--tinta). */
+select,
+input {
+  /* TODO */
+}
+
+/* ==========================================================
+   LANGKAH 1.5 — KATALOG DAN KARTU PRODUK [TODO + DISEDIAKAN]
+   ========================================================== */
+
+/* Katalog: jumlah kolom menyesuaikan lebar layar OTOMATIS, tanpa media query.
+   Petunjuk: display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 20px.
+   Uji: kecilkan jendela browser, lihat jumlah kolom berubah sendiri. */
+.katalog {
+  /* TODO */
+}
+
+/* Kartu: kolom vertikal (foto, lalu isi). Petunjuk: display: flex + flex-direction: column;
+   overflow: hidden (agar sudut foto ikut melengkung); border; border-radius: var(--lengkung). */
+.kartu {
+  /* TODO */
+}
+
+/* Area foto. Warna latarnya dibaca dari variabel --warna yang ditulis di atribut style tiap kartu:
+   style="--warna: #ffe1de"  ->  background: var(--warna).
+   position: relative WAJIB karena label harga di dalamnya memakai position: absolute. */
+.kartu-foto {
+  /* TODO: position relative, padding (atas 22px, kiri-kanan 22px, bawah 34px), background: var(--warna) */
+}
+
+.kartu-foto img {
+  /* TODO: width 72% dan tengahkan secara horizontal (margin-inline: auto) */
+}
+
+/* [DISEDIAKAN] Label harga bertakik. Dibahas bersama guru:
+   - position: absolute menempelkan label ke sudut kiri bawah foto
+   - clip-path: polygon(...) memotong persegi menjadi bentuk label
+   - ::before membuat lubang tali kecil */
+.harga-tag {
+  position: absolute;
+  left: 12px;
+  bottom: -16px;
+  padding: 6px 14px 6px 24px;
+  background: var(--pisang);
+  color: var(--pisang-teks);
+  font-family: var(--font-tampil);
+  font-size: 1.05rem;
+  font-weight: 800;
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
+}
+
+.harga-tag::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--pisang-teks);
+  opacity: 0.4;
+}
+
+.harga-tag small {
+  margin-left: 1px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* [DISEDIAKAN] Tombol "Ganti warna" di pojok kanan atas foto. */
+.ganti-warna {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.85);
+  color: #1c3b28;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Bagian isi kartu (nama, info, tombol). Petunjuk: flex kolom, gap 8px, flex: 1 (agar semua kartu
+   dalam satu baris sama tinggi), padding atas 26px (ruang untuk label harga yang menjorok keluar), kiri-kanan-bawah 16px. */
+.kartu-isi {
+  /* TODO */
+}
+
+/* Baris "kategori ... stok". Petunjuk: flex + justify-content: space-between; margin 0; font-size 0.85rem; color var(--redam). */
+.kartu-info {
+  /* TODO */
+}
+
+.stok-tipis {
+  color: var(--tomat);
+  font-weight: 700;
+}
+
+/* Tombol di dalam kartu selalu menempel di dasar kartu. Petunjuk: margin-top: auto. */
+.kartu-isi .tombol {
+  /* TODO */
+}
+
+/* State "habis". Kelas ini dipasang JavaScript lewat className, CSS-nya yang mengubah tampilan.
+   Petunjuk: filter: grayscale(1) dan opacity pada gambar. */
+.kartu.habis .kartu-foto img {
+  /* TODO */
+}
+
+/* [DISEDIAKAN] Stempel "Habis" memakai pseudo-element ::after (konten dibuat oleh CSS, bukan HTML). */
+.kartu.habis .kartu-foto::after {
+  content: "Habis";
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  padding: 2px 14px;
+  border: 3px solid #b3261e;
+  border-radius: 8px;
+  background: rgb(255 255 255 / 0.8);
+  color: #b3261e;
+  font-family: var(--font-tampil);
+  font-size: 1.5rem;
+  font-weight: 800;
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+
+/* ==========================================================
+   NOTA BELANJA [DISEDIAKAN]
+   Bagian ini sengaja diberikan utuh karena memakai teknik CSS lanjutan
+   (conic-gradient, drop-shadow, grid-template-areas). Tugasmu: BACA dan JELASKAN
+   minimal 3 aturan di sini dengan kata-katamu sendiri (lembar kerja Pertemuan 5).
+   ========================================================== */
+.nota {
+  position: relative; /* jadi patokan untuk ::after (tepi bergerigi) */
+  margin-bottom: 14px;
+  padding: 22px 20px 26px;
+  border-radius: 6px 6px 0 0;
+  background: var(--kertas);
+  color: var(--tinta-kertas);
+  filter: drop-shadow(0 8px 14px rgb(0 0 0 / 0.22));
+}
+
+.nota::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: conic-gradient(from 135deg at 50% 0, transparent 90deg, var(--kertas) 0) 0 0 / 20px 100%;
+}
+
+.nota h2 {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed var(--garis-kertas);
+}
+
+.nota-kosong {
+  margin: 0 0 12px;
+  color: var(--redam-kertas);
+}
+
+.daftar-nota {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.baris-nota {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  grid-template-areas:
+    "foto info harga"
+    "foto atur hapus";
+  align-items: center;
+  gap: 4px 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--garis-kertas);
+}
+
+.baris-nota img {
+  grid-area: foto;
+  width: 44px;
+  height: 44px;
+  align-self: start;
+}
+
+.baris-info {
+  grid-area: info;
+  display: grid;
+  line-height: 1.25;
+}
+
+.baris-info span {
+  font-size: 0.8rem;
+  color: var(--redam-kertas);
+}
+
+.baris-harga {
+  grid-area: harga;
+  font-family: var(--font-nota);
+  font-weight: 700;
+  text-align: right;
+}
+
+.stepper {
+  grid-area: atur;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stepper button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 2px solid var(--tinta-kertas);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--tinta-kertas);
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: var(--tinta-kertas);
+  color: var(--kertas);
+}
+
+.stepper button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.stepper output {
+  min-width: 2ch;
+  font-family: var(--font-nota);
+  font-weight: 700;
+  text-align: center;
+}
+
+.hapus {
+  grid-area: hapus;
+  justify-self: end;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #b3261e;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ringkasan {
+  margin: 14px 0;
+  font-family: var(--font-nota);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ringkasan-baris {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+
+.ringkasan dt,
+.ringkasan dd {
+  margin: 0;
+}
+
+.ringkasan-baris.total {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 2px solid var(--tinta-kertas);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.isian {
+  margin-top: 14px;
+}
+
+.isian label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.isian-baris {
+  display: flex;
+  gap: 8px;
+}
+
+.nota input {
+  width: 100%;
+  min-width: 0;
+  border-color: var(--garis-kertas);
+  background: #ffffff;
+  color: var(--tinta-kertas);
+}
+
+.nota .tombol-garis {
+  color: var(--tinta-kertas);
+}
+
+.nota .tombol-garis:hover:not(:disabled) {
+  background: #ecebdc;
+}
+
+.pesan {
+  min-height: 1.3em;
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+}
+
+.pesan.ok {
+  color: #14602f;
+}
+
+.pesan.salah {
+  color: #b3261e;
+}
+
+.nota .tombol-lebar {
+  margin-top: 16px;
+}
+
+/* ---------- RIWAYAT, TOAST, FOOTER [DISEDIAKAN] ---------- */
+.riwayat {
+  margin-top: 44px;
+}
+
+.daftar-riwayat {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.riwayat-baris {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--garis);
+  border-radius: 12px;
+  background: var(--permukaan);
+}
+
+.riwayat-nomor {
+  font-family: var(--font-nota);
+  font-weight: 700;
+  color: var(--aksi);
+}
+
+.riwayat-info {
+  font-size: 0.9rem;
+  color: var(--redam);
+}
+
+/* Toast tersembunyi di bawah layar. Kelas "tampil" (dipasang JavaScript) menggesernya naik. */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 20;
+  width: max-content;
+  max-width: min(92vw, 420px);
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #10261a;
+  color: #ffffff;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 16px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast.tampil {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.footer {
+  padding-block: 40px 56px;
+  font-size: 0.9rem;
+  color: var(--redam);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ==========================================================
+   LANGKAH 5.1 — RESPONSIF [TODO, dikerjakan di Pertemuan 5]
+   Media query: aturan di dalamnya hanya berlaku jika layar sesuai kondisi.
+   ========================================================== */
+
+/* Layar <= 900px (tablet/HP). Target: .papan menjadi 1 kolom, .tata-letak menjadi 1 kolom
+   (nota pindah ke bawah katalog).
+   Petunjuk: @media (max-width: 900px) { ... } lalu timpa grid-template-columns: 1fr */
+/* TODO */
+
+/* Layar >= 901px DAN tinggi >= 820px: nota boleh menempel (sticky) di sisi kanan.
+   Pada layar pendek, nota yang lebih tinggi dari layar akan terpotong dan tombol Bayar
+   tidak terjangkau, karena itu syarat tinggi layar dipakai.
+   Petunjuk: @media (min-width: 901px) and (min-height: 820px) { .nota { position: sticky; top: 88px; } } */
+/* TODO */
+
+/* Layar <= 480px (HP). Target:
+   - header tidak lagi menempel (position: static)
+   - katalog menjadi 2 kolom tetap: grid-template-columns: repeat(2, minmax(0, 1fr))
+   - .papan-info menjadi grid 2 kolom, stiker terakhir memakai grid-column: 1 / -1 */
+/* TODO */
+
+/* ---------- AKSESIBILITAS [DISEDIAKAN] ---------- */
+:focus-visible {
+  outline: 3px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+.header :focus-visible {
+  outline-color: var(--pisang);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
