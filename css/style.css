@@ -197,18 +197,44 @@ select {
    ========================================================== */
 .header {
   /* TODO */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  color: var(--permukaan);
+  background: var(--daun);
 }
 
 .header-isi {
   /* TODO: flex, tengahkan secara vertikal, beri jarak antar-elemen (gap), tinggi minimal 64px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px 16px;
+  min-height: 64px;
+  padding-block: 8px;
+  flex-wrap: wrap;
 }
 
 .logo {
   /* TODO: flex agar ikon dan teks sejajar, font-family: var(--font-tampil), tebal, hilangkan garis bawah link */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  font-family: var(--font-tampil);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo-ikon {
+  font-size: 1.6rem;
 }
 
 .header-aksi {
   /* TODO: flex dengan jarak 10px antar-tombol */
+  gap: 10px;
+  display: flex;
 }
 
 /* Badge angka di tombol Nota [DISEDIAKAN]. Animasi "loncat" dipicu oleh JavaScript. */
@@ -243,20 +269,40 @@ select {
    Petunjuk: display: grid dengan grid-template-columns: 1fr auto; align-items: end. */
 .papan {
   /* TODO */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  padding-block: 36px 28px;
 }
 
 .papan-teks p {
   /* TODO: batasi lebar teks (max-width: 46ch), beri jarak atas, warna var(--redam) */
+  max-width: 46ch;
+  margin: 0.6rem 0 0;
+  color: var(--redam);
 }
 
 .papan-info {
   /* TODO: flex + flex-wrap, gap 12px, hilangkan bullet list (list-style: none) dan margin/padding bawaan */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Stiker: kotak berbingkai putus-putus seperti kupon yang digunting.
    Petunjuk: border: 2px dashed var(--aksi); border-radius; background: var(--permukaan). */
 .stiker {
   /* TODO */
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  padding: 10px 14px;
+  border: 2px dashed var(--aksi);
+  background: var(--permukaan);
+  border-radius: 12px;
 }
 
 .stiker strong {
@@ -273,11 +319,21 @@ select {
    Pertanyaan: kenapa memakai minmax(0, 1fr) dan bukan 1fr saja? (Cari tahu, lalu jawab di lembar kerja.) */
 .tata-letak {
   /* TODO */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 32px;
+  align-items: start;
 }
 
 /* Baris "judul + dua dropdown". Petunjuk: flex, flex-wrap, justify-content: space-between, gap. */
 .alat {
   /* TODO */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  align-items: center;
 }
 
 .alat-pilihan {
@@ -299,6 +355,11 @@ select {
 select,
 input {
   /* TODO */
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--garis);
+  border-radius: 10px;
+  background-color: var(--permukaan) ;
+  color: var(--tinta);
 }
 
 /* ==========================================================
@@ -310,12 +371,22 @@ input {
    Uji: kecilkan jendela browser, lihat jumlah kolom berubah sendiri. */
 .katalog {
   /* TODO */
+  display: grid;
+  grid-template-columns: repeat(autofill ,minmax(210px, 1fr));
+  gap: 20px;
+  margin-top: 12px;
 }
 
 /* Kartu: kolom vertikal (foto, lalu isi). Petunjuk: display: flex + flex-direction: column;
    overflow: hidden (agar sudut foto ikut melengkung); border; border-radius: var(--lengkung). */
 .kartu {
   /* TODO */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--garis);
+  border-radius: var(--lengkung);
+  background: var(--permukaan);
 }
 
 /* Area foto. Warna latarnya dibaca dari variabel --warna yang ditulis di atribut style tiap kartu:
@@ -323,10 +394,16 @@ input {
    position: relative WAJIB karena label harga di dalamnya memakai position: absolute. */
 .kartu-foto {
   /* TODO: position relative, padding (atas 22px, kiri-kanan 22px, bawah 34px), background: var(--warna) */
+  position: relative;
+  padding: 22px 22px 34px;
+  background: var(--warna);
 }
 
 .kartu-foto img {
   /* TODO: width 72% dan tengahkan secara horizontal (margin-inline: auto) */
+  width: 72%;
+  margin-inline: auto;
+
 }
 
 /* [DISEDIAKAN] Label harga bertakik. Dibahas bersama guru:
@@ -384,11 +461,21 @@ input {
    dalam satu baris sama tinggi), padding atas 26px (ruang untuk label harga yang menjorok keluar), kiri-kanan-bawah 16px. */
 .kartu-isi {
   /* TODO */
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 26px 16px 16px;
 }
 
 /* Baris "kategori ... stok". Petunjuk: flex + justify-content: space-between; margin 0; font-size 0.85rem; color var(--redam). */
 .kartu-info {
   /* TODO */
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--redam);
 }
 
 .stok-tipis {
@@ -399,12 +486,15 @@ input {
 /* Tombol di dalam kartu selalu menempel di dasar kartu. Petunjuk: margin-top: auto. */
 .kartu-isi .tombol {
   /* TODO */
+  margin-top: auto;
 }
 
 /* State "habis". Kelas ini dipasang JavaScript lewat className, CSS-nya yang mengubah tampilan.
    Petunjuk: filter: grayscale(1) dan opacity pada gambar. */
 .kartu.habis .kartu-foto img {
   /* TODO */
+  filter: grayscale(1);
+  opacity: 0.5;
 }
 
 /* [DISEDIAKAN] Stempel "Habis" memakai pseudo-element ::after (konten dibuat oleh CSS, bukan HTML). */

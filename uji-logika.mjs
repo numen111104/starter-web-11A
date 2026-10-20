@@ -92,6 +92,15 @@ uji("ada minimal satu produk yang stoknya habis (untuk menguji tampilan 'Habis')
   harapkan(produk.some((item) => item.stok === 0), true);
 });
 
+uji("tidak ada data categori selain IMPOR dan LOKAL", () => {
+  harapkan(
+    produk.some((item) => {
+      const kategori = item.category.toLowerCase();
+      return kategori !== "impor" && kategori !== "lokal";
+    }),
+    false,
+  );
+});
 // ============================================================
 console.log("\nFUNGSI HELPER (helper.js)");
 // ============================================================

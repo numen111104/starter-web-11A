@@ -20,6 +20,56 @@ export const produk = [
     gambarAlt: "assets/img/apel-hijau.svg", // OPSIONAL: gambar kedua untuk tombol "Ganti warna"
     warna: "#ffe1de", // warna latar foto, dibaca CSS lewat variabel --warna
   },
+  {
+    id: 2,
+    name: "Anggur",
+    price: 40000,
+    category: "Lokal",
+    stok: 5,
+    gambar: "assets/img/anggur.svg",
+    gambarAlt: "assets/img/anggur.svg",
+    warna: "#ab74de",
+  },
+  {
+    id: 3,
+    name: "Jeruk",
+    price: 34000,
+    category: "Impor",
+    stok: 5,
+    gambar: "assets/img/mangga.svg",
+    gambarAlt: "assets/img/mangga.svg",
+    warna: "#eecda9",
+  },
+  {
+    id: 4,
+    name: "Mangga",
+    price: 32000,
+    category: "Impor",
+    stok: 5,
+    gambar: "assets/img/anggur.svg",
+    gambarAlt: "assets/img/anggur.svg",
+    warna: "#98ebb8",
+  },
+  {
+    id: 5,
+    name: "Nanas",
+    price: 50000,
+    category: "Lokal",
+    stok: 5,
+    gambar: "assets/img/nanas.svg",
+    gambarAlt: "assets/img/nanas.svg",
+    warna: "#ab74de",
+  },
+  {
+    id: 6,
+    name: "Pisang",
+    price: 45000,
+    category: "Lokal",
+    stok: 0,
+    gambar: "assets/img/pisang.svg",
+    gambarAlt: "assets/img/pisang.svg",
+    warna: "#d2d67e",
+  },
 
   // TODO: tambahkan minimal 5 produk lagi (total minimal 6). Aturannya:
   //   - id        : angka, TIDAK boleh sama dengan produk lain (2, 3, 4, ...)
