@@ -105,7 +105,8 @@ function loncatkanBadge() {
 // Ringkasan dihitung ulang setiap dibutuhkan, tidak disimpan di variabel,
 // supaya tidak pernah "basi" (berbeda dengan isi nota yang sebenarnya).
 // daftarKupon.get("") -> undefined -> parameter default di hitungRingkasan yang dipakai.
-const ambilRingkasan = () => hitungRingkasan(hitungSubtotal(), daftarKupon.get(kodeKupon));
+const ambilRingkasan = () =>
+  hitungRingkasan(hitungSubtotal(), daftarKupon.get(kodeKupon));
 
 // ============================================================
 // 5. RENDER: papan info di bagian atas [TODO — LANGKAH 5.1]
@@ -139,8 +140,36 @@ function renderPapanInfo() {
 //   - tombol "Ganti warna" HANYA muncul jika item punya gambarAlt (id="ganti-${id}")  [BONUS]
 // MATERI: object destructuring -> const { id, name, price, ... } = item;   (struktur-data/object.js)
 const buatKartu = (item) => {
-  // TODO
-  return "";
+  const { id, name, price, category, stok, gambar, gambarAlt, warna } = item;
+  const isAvailable = stok > 0;
+  const labelStok = !isAvailable
+    ? "Habis"
+    : stok <= 5
+      ? `Tinggal ${stok} lagi`
+      : `Stok ${stok} kg`;
+
+  const tombolGanti = gambarAlt
+    ? `<button id="ganti-${id}" class="ganti-warna" type="button">Ganti warna</button>`
+    : "";
+
+  const labelNota = isAvailable ? "Tambah ke Nota" : "Stok Habis";
+  return `
+  <article class="kartu" style="--warna: ${warna}">
+              <div class="kartu-foto">
+                <img id="gambar-${id}" src="${gambar}" alt="${name}" width="200" height="200">
+                ${tombolGanti}
+                <span class="harga-tag">${formatRupiah(price)}<small>/kg</small></span>
+              </div>
+              <div class="kartu-isi">
+                <h3>${name}</h3>
+                <p class="kartu-info">
+                  <span>${category}</span>
+                  <span>${labelStok}</span>
+                </p>
+                <button id="tambah-${id}" class="tombol tombol-hijau tombol-lebar" type="button" ${isAvailable ? "" : "disabled"}>${labelNota}</button>
+              </div>
+            </article>
+  `;
 };
 
 function renderKatalog() {
@@ -159,6 +188,18 @@ function renderKatalog() {
   //   - filter kategori : jika kategoriAktif bukan "Semua", daftar = daftar.filter((item) => item.category === kategoriAktif)
   //   - urutkan         : daftar.sort((a, b) => a.price - b.price)   (murah ke mahal; untuk "mahal" balik a dan b)
   //   - tombol "Ganti warna" : tukar gambar dan gambarAlt dengan array destructuring, lalu ubah img.src
+
+  let daftar = Array.from(produk);
+
+  let html = "";
+
+  daftar.forEach((item) => {
+    html += buatKartu(item);
+  });
+
+  katalog.innerHTML = html;
+  jumlahHasil.textContent = `${daftar.length} jenis buath yang tampil`;
+
 }
 
 // ============================================================
@@ -260,6 +301,7 @@ function renderRiwayat() {
 // ============================================================
 function mulai() {
   // TODO Langkah 2.3 : panggil renderKatalog() dan renderNota()
+  renderKatalog();
   // TODO Langkah 5.1 : tambahkan  sapaan.textContent = sapaByWaktu(new Date().getHours()) + "!";  dan  renderPapanInfo()
   // TODO Langkah 5.2 : tambahkan renderRiwayat()  (bonus)
 }

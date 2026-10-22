@@ -35,7 +35,7 @@ export function sapaByWaktu(jam) {
 //           Operator + antara "Rp" dan string itu menggabungkan teks.
 // Tulis sebagai FUNCTION EXPRESSION: const formatRupiah = function (...) { ... };
 export const formatRupiah = function (angka = 0) {
-  // TODO
+  return `Rp${angka.toLocaleString("id-ID")}`;
 };
 
 // ---------- 3. formatPotongan(angka)   [LANGKAH 4.1] ----------
